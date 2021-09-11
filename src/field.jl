@@ -235,9 +235,9 @@ end
 
     if frac_digits <= 15 && -22 <= exp <= 22
         if exp >= 0
-            f = F(f1)*10.0^exp
+            f = F(f1)*exp10(exp)
         else
-            f = F(f1)/10.0^(-exp)
+            f = F(f1)/exp10(-exp)
         end
     else
           f = convert_to_double(f1, exp)
@@ -754,4 +754,3 @@ function tryparsenext(f::Field{T}, str, i, len, opts) where {T}
     @label done
     return R(convert(T, res)), i
 end
-
